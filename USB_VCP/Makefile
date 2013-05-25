@@ -5,10 +5,10 @@ STM_COMMON=../../STM32F4-Discovery_FW_V1.1.0
 SRCS= main.c stm32f4xx_it.c system_stm32f4xx.c 
 
 # Usb Library
-SRCS += usb_bsp.c usbd_cdc_vcp.c usbd_desc.c usbd_usr.c stm32f4_discovery.c
+SRCS += usb_bsp.c usbd_cdc_vcp.c usbd_desc.c usbd_usr.c 
 
 # Library code
-SRCS += stm32f4xx_exti.c stm32f4xx_gpio.c stm32f4xx_rcc.c misc.c stm32f4xx_syscfg.c
+SRCS += stm32f4_discovery.c stm32f4xx_exti.c stm32f4xx_gpio.c stm32f4xx_rcc.c misc.c stm32f4xx_syscfg.c
 SRCS += usb_core.c usb_dcd.c usb_dcd_int.c 
 SRCS += usbd_cdc_core.c usbd_core.c usbd_ioreq.c usbd_req.c
 
