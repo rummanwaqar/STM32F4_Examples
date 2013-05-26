@@ -43,6 +43,13 @@
 /*            Cortex-M4 Processor Exceptions Handlers                         */
 /******************************************************************************/
 
+void TIM2_IRQHandler(void) {
+  if (TIM_GetITStatus(TIM2, TIM_IT_Update) != RESET) {
+    TIM_ClearITPendingBit(TIM2, TIM_IT_Update);
+    GPIO_ToggleBits(GPIOD, GPIO_Pin_13);
+  }
+}
+
 /**
   * @brief   This function handles NMI exception.
   * @param  None

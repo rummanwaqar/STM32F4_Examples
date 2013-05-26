@@ -17,13 +17,6 @@ void Delay(__IO uint32_t nCount);
 void GPIOInit(void);
 void TIMInit(void);
 /* Private functions ---------------------------------------------------------*/
-void TIM2_IRQHandler(void) {
-  if (TIM_GetITStatus(TIM2, TIM_IT_Update) != RESET) {
-    TIM_ClearITPendingBit(TIM2, TIM_IT_Update);
-    GPIO_ToggleBits(GPIOD, GPIO_Pin_13);
-  }
-}
-
 
 /**
   * @brief  Main program
@@ -37,7 +30,7 @@ int main(void)
   GPIOInit();
   TIMInit();  
 
-  while (1) {;}
+  while (1);
 }
 
 void GPIOInit() {
