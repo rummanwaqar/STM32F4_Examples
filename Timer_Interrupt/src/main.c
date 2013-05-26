@@ -37,12 +37,7 @@ int main(void)
   GPIOInit();
   TIMInit();  
 
-  while (1) {
-    if(TIM_GetFlagStatus(TIM2, TIM_FLAG_Update) != RESET) {
-      TIM_ClearFlag(TIM2, TIM_IT_Update);
-      GPIO_ToggleBits(GPIOD, GPIO_Pin_13);
-    }
-  }
+  while (1) {;}
 }
 
 void GPIOInit() {
