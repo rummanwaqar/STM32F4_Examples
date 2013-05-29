@@ -56,8 +56,8 @@ void TIMInit() {
   /* TIM2 clock enable */
   RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM2, ENABLE);
   /* Time base configuration */
-  TIM_TimeBaseStructure.TIM_Period = 14 - 1; // 2 MHz down to 70 KHz
-  TIM_TimeBaseStructure.TIM_Prescaler = SystemCoreClock/2000000 - 1; // Down to 2 MHz
+  TIM_TimeBaseStructure.TIM_Period = 28 - 1; // 2 MHz down to 70 KHz
+  TIM_TimeBaseStructure.TIM_Prescaler = SystemCoreClock/(2 * 2000000) - 1; // Down to 2 MHz
   TIM_TimeBaseStructure.TIM_ClockDivision = 0;
   TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;
   TIM_TimeBaseInit(TIM2, &TIM_TimeBaseStructure);
