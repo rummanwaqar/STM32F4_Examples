@@ -14,3 +14,5 @@ Examples for STM32F4-Discovery
 
 4 - Timer (Time base) mode with Interrupt (TIM2)
 	- Toggles PD13 at a freq of 70KHz
+
+5 - SDIO Example
