@@ -40,10 +40,11 @@ int main(void)
   int i;
   uint8_t outBuf[512];
   for(i=0; i<512; i++)
-    outBuf[i] = 0x0a;
-
+    outBuf[i] = 0x22;
   SD_WriteBlock( outBuf, 0, 512 );
-  
+  SD_WaitWriteOperation();
+  while( SD_GetStatus() != SD_TRANSFER_OK ); 
+    
   while(1) {
     GPIO_ToggleBits( GPIOD, GPIO_Pin_15 );
     Delay( 0xfffff );

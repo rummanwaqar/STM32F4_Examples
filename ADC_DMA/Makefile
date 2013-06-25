@@ -1,11 +1,12 @@
-#STM32F4 library code directory
+# STM32F4 library code directory
 STM_COMMON=../../STM32F4-Discovery_FW_V1.1.0
 
 # Source files
-SRCS= main.c stm32f4xx_it.c system_stm32f4xx.c sdio.c sdio_sd.c
+SRCS= main.c stm32f4xx_it.c system_stm32f4xx.c
 
 # Library code
-SRCS += stm32f4xx_exti.c stm32f4xx_gpio.c stm32f4xx_rcc.c misc.c stm32f4xx_syscfg.c stm32f4xx_sdio.c stm32f4xx_dma.c
+SRCS += stm32f4_discovery.c stm32f4xx_exti.c stm32f4xx_gpio.c stm32f4xx_rcc.c misc.c stm32f4xx_syscfg.c
+SRCS += stm32f4xx_dma.c stm32f4xx_adc.c stm32f4xx_tim.c
 
 # Project name
 PROJ_NAME=$(notdir $(CURDIR))
