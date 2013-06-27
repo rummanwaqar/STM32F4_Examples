@@ -38,13 +38,21 @@ int main(void)
   NVIC_Init(&NVIC_InitStructure);
 
   int i;
-  uint8_t outBuf[512];
-  for(i=0; i<512; i++)
-    outBuf[i] = 0x22;
-  SD_WriteBlock( outBuf, 0, 512 );
+  uint16_t outBuf[2048];
+  for(i=0; i<2048; i++)
+    outBuf[i] = 0x8899;
+  GPIO_SetBits( GPIOD, GPIO_Pin_13 );
+  SD_WriteMultiBlocks( outBuf, 0, 512, 4 );
   SD_WaitWriteOperation();
   while( SD_GetStatus() != SD_TRANSFER_OK ); 
-    
+  GPIO_ResetBits( GPIOD, GPIO_Pin_13 );
+  
+  GPIO_SetBits( GPIOD, GPIO_Pin_13 );
+  SD_WriteMultiBlocks( outBuf, 2048, 512, 4 );
+  SD_WaitWriteOperation();
+  while( SD_GetStatus() != SD_TRANSFER_OK );
+  GPIO_ResetBits( GPIOD, GPIO_Pin_13 );
+
   while(1) {
     GPIO_ToggleBits( GPIOD, GPIO_Pin_15 );
     Delay( 0xfffff );
